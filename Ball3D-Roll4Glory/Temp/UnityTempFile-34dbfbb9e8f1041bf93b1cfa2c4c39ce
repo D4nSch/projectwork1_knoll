@@ -79,6 +79,7 @@
 -define:UNITY_EDITOR_64
 -define:UNITY_EDITOR_OSX
 'Assets/Scripts/CameraController.cs'
+'Assets/Scripts/Menu.cs'
 'Assets/Scripts/PlayerController.cs'
 'Assets/Scripts/Rotator.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
