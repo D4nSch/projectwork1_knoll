@@ -14,13 +14,16 @@ public class PlayerController : MonoBehaviour {
 	private Rigidbody rb;
 	private int count;
 
-	void Start() {
+    private bool grounded = true;
+
+    void Start() {
 		
 		rb = GetComponent<Rigidbody> ();
 		count = 0;
 		SetCountText ();
 		wintext.text = "";
-	}
+        
+    }
 
 	void FixedUpdate() {
 
@@ -32,7 +35,12 @@ public class PlayerController : MonoBehaviour {
 		rb.AddForce (movement * speed);
 
 		if(Input.GetKeyDown("space")){
-			rb.AddForce(Vector3.up * jumpheight);
+            if (grounded)
+            {
+                
+                rb.AddForce(Vector3.up * jumpheight);
+                //grounded = false;
+            }
 		}
 	}
 
@@ -46,7 +54,17 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	void SetCountText () {
+    void OnCollisionStay(Collision collisionInfo)
+    {
+        grounded = true;
+    }
+
+    void OnCollisionExit(Collision collisionInfo)
+    {
+        grounded = false;
+    }
+
+    void SetCountText () {
 		counttext.text = "Score: " + count.ToString ();
 		if (count == 7) {
             SceneManager.LoadScene("EndScreen"); //this will load our first level from our build settings. "1" is the second scene in our game
