@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -48,7 +49,10 @@ public class PlayerController : MonoBehaviour {
 	void SetCountText () {
 		counttext.text = "Score: " + count.ToString ();
 		if (count == 7) {
-			wintext.text = "YOU WIN!";
-		}
+            SceneManager.LoadScene("EndScreen"); //this will load our first level from our build settings. "1" is the second scene in our game
+            
+            //wintext.text = "YOU WIN!";
+
+        }
 	}
 }
