@@ -12,15 +12,13 @@ public class CameraMovingZ : MonoBehaviour {
 	public Camera followCam;
 	public Camera zoomInCam;
 
-	//public CharacterController cc;
+	public PlayerController play;
 
 
 	// Use this for initialization
 	void Start () {
 
-		//cc = GetComponent<CharacterController>();
-
-		//cc.enabled = false;
+		play.GetComponent<PlayerController>().enabled = false;
 
 		followCam.GetComponent<Camera>().enabled = false;
 		zoomInCam.GetComponent<Camera>().enabled = true;
@@ -45,7 +43,9 @@ public class CameraMovingZ : MonoBehaviour {
 		if (transform.position == endMarker.transform.position) {
 			zoomInCam.GetComponent<Camera> ().enabled = false;
 			followCam.GetComponent<Camera> ().enabled = true;
-			//cc.enabled = true;
+
+			play.GetComponent<PlayerController>().enabled = true;
+
 		}
 	}
 }
