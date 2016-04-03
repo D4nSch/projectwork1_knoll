@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\AllTriggerOff.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CameraMovingZ.cs" />
      <Compile Include="Assets\Scripts\Fading.cs" />
@@ -54,6 +55,7 @@
      <Compile Include="Assets\Scripts\Rotator.cs" />
      <Compile Include="Assets\Scripts\SplineController.cs" />
      <Compile Include="Assets\Scripts\SplineInterpolator.cs" />
+     <Compile Include="Assets\Scripts\Trigger1.cs" />
      <Compile Include="Assets\Scripts\menuMusic.cs" />
      <Compile Include="Assets\Scripts\respawnTest.cs" />
  <Reference Include="UnityEngine.Networking">

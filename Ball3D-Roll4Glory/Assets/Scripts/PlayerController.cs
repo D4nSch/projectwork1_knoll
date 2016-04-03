@@ -9,20 +9,19 @@ public class PlayerController : MonoBehaviour {
 	public float jumpheight;
 
 	public Text counttext;
-	public Text wintext;
 
 	private Rigidbody rb;
 	private int count;
 
     private bool grounded = true;
 
+	public Trigger1 trigger1;
+
     void Start() {
 		
 		rb = GetComponent<Rigidbody> ();
 		count = 0;
-		SetCountText ();
-		wintext.text = "";
-        
+		SetCountText ();        
     }
 
 	void FixedUpdate() {
@@ -41,6 +40,15 @@ public class PlayerController : MonoBehaviour {
                 rb.AddForce(Vector3.up * jumpheight);
                 //grounded = false;
             }
+		}
+	}
+
+	void OnCollisionEnter(Collision collisionInfo) {
+
+		if (collisionInfo.gameObject.CompareTag ("TriggerPlat1")) {
+
+			trigger1.GetComponent<Trigger1> ().enabled = true;
+
 		}
 	}
 
@@ -66,11 +74,9 @@ public class PlayerController : MonoBehaviour {
 
     void SetCountText () {
 		counttext.text = "Score: " + count.ToString ();
-		if (count == 7) {
+		if (count == 10) {
             SceneManager.LoadScene("EndScreen"); //this will load our first level from our build settings. "1" is the second scene in our game
             
-            //wintext.text = "YOU WIN!";
-
         }
 	}
 }
