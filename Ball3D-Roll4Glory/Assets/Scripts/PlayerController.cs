@@ -50,6 +50,12 @@ public class PlayerController : MonoBehaviour {
 			trigger1.GetComponent<Trigger1> ().enabled = true;
 
 		}
+
+		if (collisionInfo.gameObject.CompareTag ("FinishPlat")) {
+
+			SceneManager.LoadScene("EndScreen");
+
+		}
 	}
 
 	void OnTriggerEnter(Collider other) {
