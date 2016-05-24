@@ -21,7 +21,7 @@ public class menuMusic : MonoBehaviour {
     //Update is called whenever the scene is switched, when the EndScreen is loaded the menueMusic stopts and the gameobject is destroyed
     void Update()
     {
-        if (Application.loadedLevelName == "EndScreen")
+        if (Application.loadedLevelName == "EndScreen" || Application.loadedLevelName == "LoseScreen")
         {
             GetComponent<AudioSource>().Stop();
             AudioBegin = false;
