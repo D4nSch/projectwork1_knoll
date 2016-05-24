@@ -46,7 +46,6 @@ public class Menu : MonoBehaviour
         //float fadeTime = GameObject.Find("_GM").GetComponent<Fading>().BeginFade(1);
         //yield return new WaitForSeconds(fadeTime); ist für fading funktioniert aber noch nicht wird überarbeitet!!!
 		SceneManager.LoadScene("RollerBaller"); //this will load our first level from our build settings. "1" is the second scene in our game
-
 	}
 
 	public void ExitGame () //This function will be used on our "Yes" button in our Quit menu
