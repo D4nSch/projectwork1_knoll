@@ -40,6 +40,7 @@ public class PlayerController : NetworkBehaviour {
 	void FixedUpdate() {
 
 		if(!isLocalPlayer){
+			this.enabled = false;
 			return;
 		}
 		float moveHorizontal = Input.GetAxis ("Horizontal");
