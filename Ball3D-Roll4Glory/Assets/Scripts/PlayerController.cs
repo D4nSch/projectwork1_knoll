@@ -43,6 +43,8 @@ public class PlayerController : NetworkBehaviour {
 			this.enabled = false;
 			return;
 		}
+			
+		
 		float moveHorizontal = Input.GetAxis ("Horizontal");
 		float moveVertical = Input.GetAxis ("Vertical");
 
