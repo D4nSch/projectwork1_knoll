@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.Networking;
 
@@ -6,7 +7,9 @@ public class MP_PlayerController : NetworkBehaviour {
 
 	private Rigidbody rb;
 	public float jumpheight;
-	private bool grounded = true;
+	private bool isGrounded = true;
+	//public Text counttext;
+	//private int count;
 
 	// Use this for initialization
 	void Start () {
@@ -14,12 +17,14 @@ public class MP_PlayerController : NetworkBehaviour {
 		rb = GetComponent<Rigidbody> ();
 
 	}
-
+				
 	// Update is called once per frame
 	void Update () {
 
-		if(!isLocalPlayer) {
+		if (!isLocalPlayer) {
 			return;
+		} else {
+			gameObject.name = "LocalPlayer";
 		}
 
 		Camera.main.transform.position = new Vector3 (transform.position.x, 
@@ -33,7 +38,7 @@ public class MP_PlayerController : NetworkBehaviour {
 		transform.Translate(0,0,z);
 
 		if(Input.GetKeyDown("space")){
-			if (grounded)
+			if (isGrounded==true)
 			{
 				
 				rb.AddForce(Vector3.up * jumpheight);
@@ -42,8 +47,32 @@ public class MP_PlayerController : NetworkBehaviour {
 		}
 	}
 
+	void OnCollisionStay(Collision coll){
+		isGrounded = true;
+	}
+	void OnCollisionExit(Collision coll){
+		if (isGrounded) {
+			isGrounded = false;   
+		}
+	}
+
 
 	public override void OnStartLocalPlayer() {
 		GetComponent<MeshRenderer> ().material.color = Color.yellow;
+	}
+
+	void OnTriggerEnter(Collider other) {
+
+		if (other.gameObject.CompareTag ("PickUps")) {
+			//audioPickUp [0].Play ();
+			other.gameObject.SetActive (false);
+			//count = count + 1;
+			SetCountText ();
+
+		}
+	}
+
+	void SetCountText () {
+		//counttext.text = "Score: " + count.ToString ();
 	}
 }
