@@ -63,4 +63,12 @@ public class Menu : MonoBehaviour
 
 	}
 
+	public void MultiplayerDeathmatch ()
+
+	{
+
+		SceneManager.LoadScene("MultiplayerDeathmatch");
+
+	}
+
 }
