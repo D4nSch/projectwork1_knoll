@@ -9,7 +9,6 @@ public class Menu : MonoBehaviour
 	public Button startText;
 	public Button exitText;
 	public Button mpLobby;
-	public int lives = 3;
 
 	void Start ()
 
@@ -55,16 +54,15 @@ public class Menu : MonoBehaviour
 
 	}
 
-	public void MultiplayerLobby ()
+	public void Multiplayer ()
 
 	{
 
-		SceneManager.LoadScene("Multiplayer");
+		SceneManager.LoadScene("LobbyMultiplayer");
 
 	}
 
 	public void MultiplayerDeathmatch ()
-
 	{
 
 		SceneManager.LoadScene("MultiplayerDeathmatch");
@@ -74,6 +72,12 @@ public class Menu : MonoBehaviour
 	public void Credits() 
 	{
 		SceneManager.LoadScene ("Credits");
+	}
+
+	public void QuitLobby()
+	{
+		SceneManager.LoadScene("StartMenu");
+		Destroy(GameObject.Find("LobbyManager"));
 	}
 
 }
