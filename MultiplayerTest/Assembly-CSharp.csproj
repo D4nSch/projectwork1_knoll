@@ -86,12 +86,15 @@
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\Credits.cs" />
      <Compile Include="Assets\Scripts\MP_PlayerController.cs" />
+     <Compile Include="Assets\Scripts\MP_PlayerController_Ball.cs" />
      <Compile Include="Assets\Scripts\MathUtils.cs" />
      <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\Rotator.cs" />
      <Compile Include="Assets\Scripts\SP_PlayerController.cs" />
+     <Compile Include="Assets\Scripts\SP_PlayerController_Ball.cs" />
      <Compile Include="Assets\Scripts\SplineController.cs" />
      <Compile Include="Assets\Scripts\SplineInterpolator.cs" />
+     <Compile Include="Assets\Scripts\finishPlat.cs" />
      <Compile Include="Assets\Scripts\menuMusic.cs" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />

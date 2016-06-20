@@ -81,6 +81,8 @@ public class MP_PlayerController_Ball : NetworkBehaviour {
 			spawnPos = GameObject.Find(spawnPosname).transform.position;
 			GetComponent<Rigidbody>().velocity = new Vector3(0f,0f,0f); 
             GetComponent<Rigidbody>().angularVelocity = new Vector3(0f,0f,0f);
+            speed = 10;
+			jumpheight = 250;
 		}
 	}
 
@@ -91,4 +93,5 @@ public class MP_PlayerController_Ball : NetworkBehaviour {
             GetComponent<Rigidbody>().angularVelocity = new Vector3(0f,0f,0f);
 		}
 	}
+
 }		

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class SP_PlayerController_Ball : MonoBehaviour {
 
@@ -28,7 +30,7 @@ public class SP_PlayerController_Ball : MonoBehaviour {
 
 		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
 
--		rb.AddForce (movement * speed);
+		rb.AddForce (movement * speed);
 
 		if(Input.GetKeyDown("space")){
             if (isGrounded)
@@ -66,6 +68,7 @@ public class SP_PlayerController_Ball : MonoBehaviour {
 
 			if (lives <= 0){
 				Destroy(GameObject.Find("Player"));
+				SceneManager.LoadScene("LooseScene");
 			}
 		}
 	}
