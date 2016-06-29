@@ -13,6 +13,7 @@ public class MP_PlayerController_Ball : NetworkBehaviour {
 	public int lives;
 	public Vector3 spawnPos;
 	public string spawnPosname;
+	private bool levelchanged = false;
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +26,6 @@ public class MP_PlayerController_Ball : NetworkBehaviour {
 		}
 		spawnPos = transform.position;
 		DontDestroyOnLoad(gameObject);
-		System.Console.WriteLine("test");
 	}
 	
 	// Update is called once per frame
@@ -34,6 +34,11 @@ public class MP_PlayerController_Ball : NetworkBehaviour {
 			return;
 		} else {
 			gameObject.name = "LocalPlayer";
+		}
+
+		if (levelchanged){
+			levelchanged = false;
+			Respawn();
 		}
 
 		Camera.main.transform.position = new Vector3 (transform.position.x, 
@@ -75,23 +80,23 @@ public class MP_PlayerController_Ball : NetworkBehaviour {
 		}
 	}
 
+
 	void OnLevelWasLoaded(int level){
-		if (level == 8){
-			this.transform.position = GameObject.Find(spawnPosname).transform.position;
 			spawnPos = GameObject.Find(spawnPosname).transform.position;
-			GetComponent<Rigidbody>().velocity = new Vector3(0f,0f,0f); 
-            GetComponent<Rigidbody>().angularVelocity = new Vector3(0f,0f,0f);
             speed = 10;
 			jumpheight = 250;
-		}
+			levelchanged = true;
 	}
 
 	void CheckRespawn(){
 		if(transform.position.y <= -10){
-			transform.position = spawnPos;
-			GetComponent<Rigidbody>().velocity = new Vector3(0f,0f,0f); 
-            GetComponent<Rigidbody>().angularVelocity = new Vector3(0f,0f,0f);
+			Respawn();
 		}
 	}
 
+	void Respawn(){
+		transform.position = spawnPos;
+		GetComponent<Rigidbody>().velocity = new Vector3(0f,0f,0f); 
+        GetComponent<Rigidbody>().angularVelocity = new Vector3(0f,0f,0f);
+	}
 }		
